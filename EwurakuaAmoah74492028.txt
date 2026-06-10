@@ -6,10 +6,10 @@ Current database: prestigecars
 
 Query OK, 1 row affected (0.073 sec)
 
-create table MEMBERSHIP(MEM_NUM varchar(20) PRIMARY KEY, MEM_FNAME varchar(20), MEM_LNAME varchar(20), MEM_STREET varchar (20), MEM_CITY varchar(20), MEM_STATE varchar(20), MEM_ZIP varchar(20), MEM_BALANCE int(20)); 
+create table MEMBERSHIP(MEM_NUM INT(5) PRIMARY KEY, MEM_FNAME varchar(20), MEM_LNAME varchar(20), MEM_STREET varchar (20), MEM_CITY varchar(20), MEM_STATE varchar(20), MEM_ZIP varchar(20), MEM_BALANCE int(20)); 
 Query OK, 0 rows affected (0.035 sec)
 
-create table RENTAL (RENT_NUM varchar(20) PRIMARY KEY, RENT_DATE date, MEM_NUM varchar(20), CONSTRAINT fk_rental FOREIGN KEY (MEM_NUM) REFERENCES MEMBERSHIP(MEM_NUM));
+create table RENTAL (RENT_NUM varchar(20) PRIMARY KEY, RENT_DATE date, MEM_NUM INT(5), CONSTRAINT fk_rental FOREIGN KEY (MEM_NUM) REFERENCES MEMBERSHIP(MEM_NUM));
 Query OK, 0 rows affected (0.026 sec)
 
 MariaDB [EliteVideo]> create table PRICE(PRICE_CODE int(14) PRIMARY KEY, PRICE_DESCRIPTION varchar(144), PRICE_RENTFEE double(5,2),PRICE_DAILYLATEFEE double(3,2));
@@ -429,3 +429,36 @@ MariaDB [EliteVideo]> select MOVIE_NUM, MOVIE_TITLE, MOVIE_COST  from MOVIE wher
 5 rows in set (0.001 sec)
 
 //QN13
+MariaDB [EliteVideo]> select MOVIE_NUM, MOVIE_TITLE, MOVIE_COST, MOVIE_GENRE from MOVIE where MOVIE_GENRE='ACTION' OR MOVIE_GENRE='COMEDY' AND MOVIE_COST<50 ORDER BY MOVIE_GENRE ASC;
++-----------+--------------------------+------------+-------------+
+| MOVIE_NUM | MOVIE_TITLE              | MOVIE_COST | MOVIE_GENRE |
++-----------+--------------------------+------------+-------------+
+|      1235 | Smokey Mountain Wildlife |      59.95 | ACTION      |
+|      1245 | Time to Burn             |      45.49 | ACTION      |
+|      1237 | Beatnik Fever            |      29.95 | COMEDY      |
++-----------+--------------------------+------------+-------------+
+3 rows in set (0.004 sec)
+
+//QN14
+MariaDB [EliteVideo]> SELECT MEM_NUM, MEM_FNAME, MEM_LNAME, MEM_STREET, MEM_STATE, MEM_BALANCE from MEMBERSHIP where MEM_STATE='TN' and MEM_BALANCE<5 and MEM_STREET LIKE '%Avenue';
++---------+-----------+-----------+-----------------------+-----------+-------------+
+| MEM_NUM | MEM_FNAME | MEM_LNAME | MEM_STREET            | MEM_STATE | MEM_BALANCE |
++---------+-----------+-----------+-----------------------+-----------+-------------+
+|     104 | Jamal     | Melendez  | 788 East 145th Avenue | TN        |           0 |
+|     112 | Luis      | Trujillo  | 7267 Melvin Avenue    | TN        |           3 |
++---------+-----------+-----------+-----------------------+-----------+-------------+
+2 rows in set (0.001 sec)
+
+//qn15
+MariaDB [EliteVideo]> select MOVIE_GENRE, COUNT(*) FROM MOVIE GROUP BY MOVIE_GENRE;
++-------------+----------+
+| MOVIE_GENRE | COUNT(*) |
++-------------+----------+
+| ACTION      |        2 |
+| COMEDY      |        2 |
+| DRAMA       |        3 |
+| FAMILY      |        1 |
++-------------+----------+
+4 rows in set (0.004 sec)
+
+//QN16
