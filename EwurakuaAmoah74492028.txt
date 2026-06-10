@@ -246,14 +246,14 @@ MariaDB [EliteVideo]> select * from MOVIE;
 +-----------+----------------------------+------------+------------+-------------+------------+
 | MOVIE_NUM | MOVIE_TITLE                | MOVIE_COST | MOVIE_YEAR | MOVIE_GENRE | PRICE_CODE |
 +-----------+----------------------------+------------+------------+-------------+------------+
-|      1234 | The Cesar Family Christmas |    39.9500 |       2014 | FAMILY      |          2 |
-|      1235 | Smokey Mountain Wildlife   |    59.9500 |       2011 | ACTION      |          1 |
-|      1236 | Richard Goodhope           |    59.9500 |       2011 | DRAMA       |          2 |
-|      1237 | Beatnik Fever              |    29.9500 |       2014 | COMEDY      |          2 |
-|      1238 | Constant Companion         |    89.9500 |       2015 | DRAMA       |       NULL |
-|      1239 | Where Hope Dies            |    25.4900 |       2005 | DRAMA       |          3 |
-|      1245 | Time to Burn               |    45.4900 |       2012 | ACTION      |          1 |
-|      1246 | What He Doesnt Know        |    58.2900 |       2013 | COMEDY      |          1 |
+|      1234 | The Cesar Family Christmas |    39.95 |       2014 | FAMILY      |          2 |
+|      1235 | Smokey Mountain Wildlife   |    59.95 |       2011 | ACTION      |          1 |
+|      1236 | Richard Goodhope           |    59.95 |       2011 | DRAMA       |          2 |
+|      1237 | Beatnik Fever              |    29.95 |       2014 | COMEDY      |          2 |
+|      1238 | Constant Companion         |    89.95 |       2015 | DRAMA       |       NULL |
+|      1239 | Where Hope Dies            |    25.49 |       2005 | DRAMA       |          3 |
+|      1245 | Time to Burn               |    45.49 |       2012 | ACTION      |          1 |
+|      1246 | What He Doesnt Know        |    58.29 |       2013 | COMEDY      |          1 |
 +-----------+----------------------------+------------+------------+-------------+------------+
 
 MariaDB [EliteVideo]> update MOVIE set MOVIE_YEAR=2010 where MOVIE_NUM=1245;
@@ -264,14 +264,14 @@ MariaDB [EliteVideo]> SELECT * from MOVIE;
 +-----------+----------------------------+------------+------------+-------------+------------+
 | MOVIE_NUM | MOVIE_TITLE                | MOVIE_COST | MOVIE_YEAR | MOVIE_GENRE | PRICE_CODE |
 +-----------+----------------------------+------------+------------+-------------+------------+
-|      1234 | The Cesar Family Christmas |    39.9500 |       2014 | FAMILY      |          2 |
-|      1235 | Smokey Mountain Wildlife   |    59.9500 |       2011 | ACTION      |          3 |
-|      1236 | Richard Goodhope           |    59.9500 |       2011 | DRAMA       |          2 |
-|      1237 | Beatnik Fever              |    29.9500 |       2014 | COMEDY      |          2 |
-|      1238 | Constant Companion         |    89.9500 |       2015 | DRAMA       |       NULL |
-|      1239 | Where Hope Dies            |    25.4900 |       2005 | DRAMA       |          3 |
-|      1245 | Time to Burn               |    45.4900 |       2010 | ACTION      |          3 |
-|      1246 | What He Doesnt Know        |    58.2900 |       2013 | COMEDY      |          1 |
+|      1234 | The Cesar Family Christmas |    39.95 |       2014 | FAMILY      |          2 |
+|      1235 | Smokey Mountain Wildlife   |    59.95 |       2011 | ACTION      |          3 |
+|      1236 | Richard Goodhope           |    59.95 |       2011 | DRAMA       |          2 |
+|      1237 | Beatnik Fever              |    29.95 |       2014 | COMEDY      |          2 |
+|      1238 | Constant Companion         |    89.95 |       2015 | DRAMA       |       NULL |
+|      1239 | Where Hope Dies            |    25.49 |       2005 | DRAMA       |          3 |
+|      1245 | Time to Burn               |    45.49 |       2010 | ACTION      |          3 |
+|      1246 | What He Doesnt Know        |    58.29 |       2013 | COMEDY      |          1 |
 +-----------+----------------------------+------------+------------+-------------+------------+
 8 rows in set (0.001 sec)
 
@@ -281,14 +281,14 @@ MariaDB [EliteVideo]> select * from MOVIE;
 +-----------+----------------------------+------------+------------+-------------+------------+
 | MOVIE_NUM | MOVIE_TITLE                | MOVIE_COST | MOVIE_YEAR | MOVIE_GENRE | PRICE_CODE |
 +-----------+----------------------------+------------+------------+-------------+------------+
-|      1234 | The Cesar Family Christmas |    39.9500 |       2010 | FAMILY      |          2 |
-|      1235 | Smokey Mountain Wildlife   |    59.9500 |       2011 | ACTION      |          1 |
-|      1236 | Richard Goodhope           |    59.9500 |       2011 | DRAMA       |          2 |
-|      1237 | Beatnik Fever              |    29.9500 |       2014 | COMEDY      |          2 |
-|      1238 | Constant Companion         |    89.9500 |       2015 | DRAMA       |       NULL |
-|      1239 | Where Hope Dies            |    25.4900 |       2005 | DRAMA       |          3 |
-|      1245 | Time to Burn               |    45.4900 |       2012 | ACTION      |          1 |
-|      1246 | What He Doesnt Know        |    58.2900 |       2013 | COMEDY      |          1 |
+|      1234 | The Cesar Family Christmas |    39.95 |       2010 | FAMILY      |          2 |
+|      1235 | Smokey Mountain Wildlife   |    59.95 |       2011 | ACTION      |          1 |
+|      1236 | Richard Goodhope           |    59.95 |       2011 | DRAMA       |          2 |
+|      1237 | Beatnik Fever              |    29.95 |       2014 | COMEDY      |          2 |
+|      1238 | Constant Companion         |    89.95 |       2015 | DRAMA       |       NULL |
+|      1239 | Where Hope Dies            |    25.49 |       2005 | DRAMA       |          3 |
+|      1245 | Time to Burn               |    45.49 |       2012 | ACTION      |          1 |
+|      1246 | What He Doesnt Know        |    58.29 |       2013 | COMEDY      |          1 |
 +-----------+----------------------------+------------+------------+-------------+------------+
 8 rows in set (0.000 sec)
 
@@ -300,14 +300,14 @@ MariaDB [EliteVideo]> select * from MOVIE;
 +-----------+----------------------------+------------+------------+-------------+------------+
 | MOVIE_NUM | MOVIE_TITLE                | MOVIE_COST | MOVIE_YEAR | MOVIE_GENRE | PRICE_CODE |
 +-----------+----------------------------+------------+------------+-------------+------------+
-|      1234 | The Cesar Family Christmas |    39.9500 |       2010 | FAMILY      |          2 |
-|      1235 | Smokey Mountain Wildlife   |    59.9500 |       2011 | ACTION      |          3 |
-|      1236 | Richard Goodhope           |    59.9500 |       2011 | DRAMA       |          2 |
-|      1237 | Beatnik Fever              |    29.9500 |       2014 | COMEDY      |          2 |
-|      1238 | Constant Companion         |    89.9500 |       2015 | DRAMA       |       NULL |
-|      1239 | Where Hope Dies            |    25.4900 |       2005 | DRAMA       |          3 |
-|      1245 | Time to Burn               |    45.4900 |       2012 | ACTION      |          3 |
-|      1246 | What He Doesnt Know        |    58.2900 |       2013 | COMEDY      |          1 |
+|      1234 | The Cesar Family Christmas |    39.95 |       2010 | FAMILY      |          2 |
+|      1235 | Smokey Mountain Wildlife   |    59.95 |       2011 | ACTION      |          3 |
+|      1236 | Richard Goodhope           |    59.95 |       2011 | DRAMA       |          2 |
+|      1237 | Beatnik Fever              |    29.95 |       2014 | COMEDY      |          2 |
+|      1238 | Constant Companion         |    89.95 |       2015 | DRAMA       |       NULL |
+|      1239 | Where Hope Dies            |    25.49 |       2005 | DRAMA       |          3 |
+|      1245 | Time to Burn               |    45.49 |       2012 | ACTION      |          3 |
+|      1246 | What He Doesnt Know        |    58.29 |       2013 | COMEDY      |          1 |
 +-----------+----------------------------+------------+------------+-------------+------------+
 8 rows in set (0.001 sec)
 
@@ -359,16 +359,16 @@ MariaDB [EliteVideo]> select MOVIE_YEAR, MOVIE_TITLE, MOVIE_COST from MOVIE ORDE
 +------------+----------------------------+------------+
 | MOVIE_YEAR | MOVIE_TITLE                | MOVIE_COST |
 +------------+----------------------------+------------+
-|       2015 | Constant Companion         |    89.9500 |
-|       2014 | Beatnik Fever              |    29.9500 |
-|       2013 | What He Doesnt Know        |    58.2900 |
-|       2012 | Time to Burn               |    45.4900 |
-|       2011 | Smokey Mountain Wildlife   |    59.9500 |
-|       2011 | Richard Goodhope           |    59.9500 |
-|       2010 | The Cesar Family Christmas |    39.9500 |
-|       2005 | Where Hope Dies            |    25.4900 |
+|       2015 | Constant Companion         |      89.95 |
+|       2014 | The Cesar Family Christmas |      39.95 |
+|       2014 | Beatnik Fever              |      29.95 |
+|       2013 | What He Doesnt Know        |      58.29 |
+|       2011 | Smokey Mountain Wildlife   |      59.95 |
+|       2011 | Richard Goodhope           |      59.95 |
+|       2010 | Time to Burn               |      45.49 |
+|       2005 | Where Hope Dies            |      25.49 |
 +------------+----------------------------+------------+
-8 rows in set (0.001 sec)
+8 rows in set (0.000 sec)
 
 //qn8
 MariaDB [EliteVideo]> select MOVIE_TITLE, MOVIE_YEAR, MOVIE_GENRE from MOVIE ORDER BY MOVIE_GENRE ASC,MOVIE_YEAR DESC;
@@ -396,12 +396,12 @@ MariaDB [EliteVideo]> select MOVIE_NUM, MOVIE_TITLE, PRICE_CODE from MOVIE where
 1 row in set (0.000 sec)
 
 //QN10
-MariaDB [EliteVideo]> select MOVIE_TITLE, MOVIE_YEAR, MOVIE_COST from MOVIE where MOVIE_TITLE LIKE '%hope%' ORDER BY MOVIE_TITLE ASC;            
+MariaDB [EliteVideo]> select MOVIE_TITLE, MOVIE_YEAR, MOVIE_COST from MOVIE where MOVIE_TITLE LIKE '%hope%' ORDER BY MOVIE_TITLE ASC;
 +------------------+------------+------------+
 | MOVIE_TITLE      | MOVIE_YEAR | MOVIE_COST |
 +------------------+------------+------------+
-| Richard Goodhope |       2011 |    59.9500 |
-| Where Hope Dies  |       2005 |    25.4900 |
+| Richard Goodhope |       2011 |      59.95 |
+| Where Hope Dies  |       2005 |      25.49 |
 +------------------+------------+------------+
 2 rows in set (0.000 sec)
 
