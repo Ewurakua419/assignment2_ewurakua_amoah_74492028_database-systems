@@ -416,5 +416,16 @@ MariaDB [EliteVideo]> select MOVIE_TITLE, MOVIE_YEAR, MOVIE_GENRE from MOVIE whe
 2 rows in set (0.001 sec)
 
 //QN12
+MariaDB [EliteVideo]> select MOVIE_NUM, MOVIE_TITLE, MOVIE_COST  from MOVIE where MOVIE_COST>40;
++-----------+--------------------------+------------+
+| MOVIE_NUM | MOVIE_TITLE              | MOVIE_COST |
++-----------+--------------------------+------------+
+|      1235 | Smokey Mountain Wildlife |      59.95 |
+|      1236 | Richard Goodhope         |      59.95 |
+|      1238 | Constant Companion       |      89.95 |
+|      1245 | Time to Burn             |      45.49 |
+|      1246 | What He Doesnt Know      |      58.29 |
++-----------+--------------------------+------------+
+5 rows in set (0.001 sec)
 
-
+//QN13
