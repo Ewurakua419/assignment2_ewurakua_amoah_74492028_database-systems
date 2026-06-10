@@ -511,7 +511,19 @@ MariaDB [EliteVideo]> select MOVIE_GENRE, AVG(PRICE_RENTFEE) as average_rental_f
 4 rows in set (0.001 sec)
 
 //QN20
-
+MariaDB [EliteVideo]> select MOVIE_TITLE, MOVIE_COST/PRICE_RENTFEE AS BREAKEVEN_RENTALS FROM MOVIE, PRICE WHERE MOVIE.PRICE_CODE= PRICE.PRICE_CODE;
++----------------------------+-------------------+
+| MOVIE_TITLE                | BREAKEVEN_RENTALS |
++----------------------------+-------------------+
+| The Cesar Family Christmas |          9.987500 |
+| Smokey Mountain Wildlife   |         29.975000 |
+| Richard Goodhope           |         14.987500 |
+| Beatnik Fever              |          7.487500 |
+| Where Hope Dies            |         12.745000 |
+| Time to Burn               |         22.745000 |
+| What He Doesnt Know        |         23.316000 |
++----------------------------+-------------------+
+7 rows in set (0.004 sec)
 
 //QN12MariaDB [EliteVideo]> select MOVIE_TITLE, MOVIE_YEAR from MOVIE, PRICE where MOVIE.PRICE_CODE=PRICE.PRICE_CODE;    
 +----------------------------+------------+
@@ -537,3 +549,80 @@ MariaDB [EliteVideo]> select MOVIE_TITLE, MOVIE_GENRE, MOVIE_COST from MOVIE whe
 1 row in set (0.001 sec)
 
 //QN23
+MariaDB [EliteVideo]> select MOVIE_TITLE, PRICE_DESCRIPTION, PRICE_RENTFEE, MOVIE_GENRE from MOVIE,PRICE where MOVIE.PRICE_CODE=PRICE.PRICE_CODE and (MOVIE_GENRE='FAMILY' or MOVIE_GENRE='COMEDY' or MOVIE_GENRE='DRAMA');
++----------------------------+-------------------+---------------+-------------+
+| MOVIE_TITLE                | PRICE_DESCRIPTION | PRICE_RENTFEE | MOVIE_GENRE |
++----------------------------+-------------------+---------------+-------------+
+| The Cesar Family Christmas | New Release       |          4.00 | FAMILY      |
+| Richard Goodhope           | New Release       |          4.00 | DRAMA       |
+| Beatnik Fever              | New Release       |          4.00 | COMEDY      |
+| Where Hope Dies            | Discount          |          2.00 | DRAMA       |
+| What He Doesnt Know        | Standard          |          2.50 | COMEDY      |
++----------------------------+-------------------+---------------+-------------+
+5 rows in set (0.001 sec)
+
+//QN24
+MariaDB [EliteVideo]> select DISTINCT MEMBERSHIP.MEM_NUM, MEMBERSHIP.MEM_FNAME, MEMBERSHIP.MEM_LNAME, MEMBERSHIP.MEM_BALANCE from MEMBERSHIP, RENTAL where MEMBERSHIP.MEM_NUM=RENTAL.MEM_NUM;
++---------+-----------+-----------+-------------+
+| MEM_NUM | MEM_FNAME | MEM_LNAME | MEM_BALANCE |
++---------+-----------+-----------+-------------+
+|     102 | Tami      | Dawson    |          11 |
+|     103 | Curt      | Knight    |           6 |
+|     104 | Jamal     | Melendez  |           0 |
+|     105 | Iva       | Mcclain   |          15 |
+|     107 | Rosario   | Elliott   |           5 |
+|     110 | Lewis     | Rosales   |           0 |
+|     111 | Stacy     | Mann      |           8 |
++---------+-----------+-----------+-------------+
+7 rows in set (0.001 sec)
+
+
+//QN25
+
+//QN26
+MariaDB [EliteVideo]> SELECT RENTAL.RENT_NUM, RENTAL.RENT_DATE, DETAILRENTAL.VID_NUM,MOVIE.MOVIE_TITLE, DETAILRENTAL.DETAIL_DUEDATE, DETAILRENTAL.DETAIL_RETURNDATE FROM DETAILRENTAL, RENTAL, MOVIE, VIDEO
+WHERE DETAILRENTAL.RENT_NUM = RENTAL.RENT_NUM AND VIDEO.MOVIE_NUM = MOVIE.MOVIE_NUM AND DETAILRENTAL.VID_NUM = VIDEO.VID_NUM AND DETAILRENTAL.DETAIL_RETURNDATE > DETAILRENTAL.DETAIL_DUEDATE ORDER BY RENTAL.RENT_NUM, MOVIE.MOVIE_TITLE;
++----------+------------+---------+----------------------------+----------------+-------------------+
+| RENT_NUM | RENT_DATE  | VID_NUM | MOVIE_TITLE                | DETAIL_DUEDATE | DETAIL_RETURNDATE |
++----------+------------+---------+----------------------------+----------------+-------------------+
+|     1003 | 2016-03-02 |   54325 | The Cesar Family Christmas | 2016-03-04     | 2016-03-09        |
+|     1003 | 2016-03-02 |   61369 | What He Doesnt Know        | 2016-03-06     | 2016-03-09        |
+|     1003 | 2016-03-02 |   61388 | Where Hope Dies            | 2016-03-06     | 2016-03-09        |
+|     1004 | 2016-03-02 |   44392 | Beatnik Fever              | 2016-03-05     | 2016-03-07        |
+|     1004 | 2016-03-02 |   34367 | Richard Goodhope           | 2016-03-05     | 2016-03-07        |
++----------+------------+---------+----------------------------+----------------+-------------------+
+5 rows in set (0.001 sec)
+
+//QN27
+MariaDB [EliteVideo]> SELECT RENTAL.RENT_NUM, RENTAL.RENT_DATE,MOVIE.MOVIE_TITLE, DETAILRENTAL.DETAIL_DAILYLATEFEE FROM DETAILRENTAL, RENTAL, MOVIE, VIDEO WHERE DETAILRENTAL.RENT_NUM = RENTAL.RENT_NUM AND VIDEO.MOVIE_NUM = MOVIE.MOVIE_NUM AND DETAILRENTAL.VID_NUM = VIDEO.VID_NUM AND (DETAILRENTAL.DETAIL_RETURNDATE < DETAILRENTAL.DETAIL_DUEDATE or DETAILRENTAL.DETAIL_RETURNDATE = DETAILRENTAL.DETAIL_DUEDATE);
++----------+------------+--------------------------+---------------------+
+| RENT_NUM | RENT_DATE  | MOVIE_TITLE              | DETAIL_DAILYLATEFEE |
++----------+------------+--------------------------+---------------------+
+|     1001 | 2016-03-01 | Smokey Mountain Wildlife |                NULL |
+|     1001 | 2016-03-01 | Richard Goodhope         |                   3 |
+|     1001 | 2016-03-01 | Time to Burn             |                   1 |
+|     1002 | 2016-03-01 | Beatnik Fever            |                   3 |
+|     1004 | 2016-03-02 | Smokey Mountain Wildlife |                   1 |
+|     1005 | 2016-03-02 | Smokey Mountain Wildlife |                   1 |
+|     1005 | 2016-03-02 | Beatnik Fever            |                   3 |
+|     1006 | 2016-03-02 | Richard Goodhope         |                   3 |
+|     1008 | 2016-03-03 | Richard Goodhope         |                   3 |
++----------+------------+--------------------------+---------------------+
+9 rows in set (0.001 sec)
+
+//QN28
+MariaDB [EliteVideo]> select MOVIE.MOVIE_NUM,MOVIE.MOVIE_GENRE,  a.Average_Cost, MOVIE.MOVIE_COST, ((a.Average_Cost-MOVIE.MOVIE_COST)/a.Average_Cost)*100 as Percent_Difference from MOVIE CROSS JOIN( select AVG(MOVIE_COST) as Average_Cost from MOVIE)a;
++-----------+-------------+--------------+------------+--------------------+
+| MOVIE_NUM | MOVIE_GENRE | Average_Cost | MOVIE_COST | Percent_Difference |
++-----------+-------------+--------------+------------+--------------------+
+|      1234 | FAMILY      |    51.127500 |      39.95 |      21.8620116376 |
+|      1235 | ACTION      |    51.127500 |      59.95 |     -17.2558799081 |
+|      1236 | DRAMA       |    51.127500 |      59.95 |     -17.2558799081 |
+|      1237 | COMEDY      |    51.127500 |      29.95 |      41.4209574104 |
+|      1238 | DRAMA       |    51.127500 |      89.95 |     -75.9327172265 |
+|      1239 | DRAMA       |    51.127500 |      25.49 |      50.1442472251 |
+|      1245 | ACTION      |    51.127500 |      45.49 |      11.0263556794 |
+|      1246 | COMEDY      |    51.127500 |      58.29 |     -14.0090949098 |
++-----------+-------------+--------------+------------+--------------------+
+8 rows in set (0.001 sec)
+
