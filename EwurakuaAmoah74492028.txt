@@ -462,3 +462,25 @@ MariaDB [EliteVideo]> select MOVIE_GENRE, COUNT(*) FROM MOVIE GROUP BY MOVIE_GEN
 4 rows in set (0.004 sec)
 
 //QN16
+MariaDB [EliteVideo]> select AVG(MOVIE_COST) as average_movie_cost FROM MOVIE ;
++--------------------+
+| average_movie_cost |
++--------------------+
+|          51.127500 |
++--------------------+
+1 row in set (0.002 sec)
+
+
+//qn17
+MariaDB [EliteVideo]> select MOVIE_GENRE, AVG(MOVIE_COST) as average_movie_cost FROM MOVIE GROUP BY MOVIE_GENRE;
++-------------+--------------------+
+| MOVIE_GENRE | average_movie_cost |
++-------------+--------------------+
+| ACTION      |          52.720000 |
+| COMEDY      |          44.120000 |
+| DRAMA       |          58.463333 |
+| FAMILY      |          39.950000 |
++-------------+--------------------+
+4 rows in set (0.005 sec)
+
+//QN18
