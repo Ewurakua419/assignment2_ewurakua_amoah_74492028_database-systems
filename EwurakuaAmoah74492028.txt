@@ -578,6 +578,13 @@ MariaDB [EliteVideo]> select DISTINCT MEMBERSHIP.MEM_NUM, MEMBERSHIP.MEM_FNAME, 
 
 
 //QN25
+MariaDB [EliteVideo]> select min(MEM_BALANCE) as MINIMUM_BALANCE, MAX(MEM_BALANCE) as MAXIMUM_BALANCE, AVG( MEM_BALANCE) AS AVERAGE_BALANCE from MEMBERSHIP WHERE MEM_NUM in (SELECT DISTINCT MEM_NUM FROM RENTAL);
++-----------------+-----------------+-----------------+
+| MINIMUM_BALANCE | MAXIMUM_BALANCE | AVERAGE_BALANCE |
++-----------------+-----------------+-----------------+
+|               0 |              15 |          6.4286 |
++-----------------+-----------------+-----------------+
+1 row in set (0.001 sec)
 
 //QN26
 MariaDB [EliteVideo]> SELECT RENTAL.RENT_NUM, RENTAL.RENT_DATE, DETAILRENTAL.VID_NUM,MOVIE.MOVIE_TITLE, DETAILRENTAL.DETAIL_DUEDATE, DETAILRENTAL.DETAIL_RETURNDATE FROM DETAILRENTAL, RENTAL, MOVIE, VIDEO
