@@ -526,7 +526,8 @@ MariaDB [EliteVideo]> select MOVIE_TITLE, MOVIE_COST/PRICE_RENTFEE AS BREAKEVEN_
 +----------------------------+-------------------+
 7 rows in set (0.004 sec)
 
-//QN12MariaDB [EliteVideo]> select MOVIE_TITLE, MOVIE_YEAR from MOVIE, PRICE where MOVIE.PRICE_CODE=PRICE.PRICE_CODE;    
+//QN21
+MariaDB [EliteVideo]> select MOVIE_TITLE, MOVIE_YEAR from MOVIE, PRICE where MOVIE.PRICE_CODE=PRICE.PRICE_CODE;    
 +----------------------------+------------+
 | MOVIE_TITLE                | MOVIE_YEAR |
 +----------------------------+------------+
