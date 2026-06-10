@@ -3,7 +3,7 @@ ERROR 2006 (HY000): Server has gone away
 No connection. Trying to reconnect...
 Connection id:    42
 Current database: prestigecars
-
+//qn1
 Query OK, 1 row affected (0.073 sec)
 
 create table MEMBERSHIP(MEM_NUM INT(5) PRIMARY KEY, MEM_FNAME varchar(20), MEM_LNAME varchar(20), MEM_STREET varchar (20), MEM_CITY varchar(20), MEM_STATE varchar(20), MEM_ZIP varchar(20), MEM_BALANCE int(20)); 
@@ -32,6 +32,7 @@ alter table MEMBERSHIP modify MEM_STATE varchar(2);
 Query OK, 4 rows affected (0.048 sec)                      
 Records: 4  Duplicates: 0  Warnings: 0
 
+//qn2
 insert into MEMBERSHIP values (102,'Tami','Dawson','2632 Takli Circle ','Norene', 'TN','37136', 11);
 Query OK, 1 row affected (0.016 sec)
 
