@@ -484,3 +484,30 @@ MariaDB [EliteVideo]> select MOVIE_GENRE, AVG(MOVIE_COST) as average_movie_cost 
 4 rows in set (0.005 sec)
 
 //QN18
+MariaDB [EliteVideo]> select MOVIE_TITLE, MOVIE_GENRE,PRICE_DESCRIPTION, PRICE_RENTFEE from MOVIE, PRICE WHERE MOVIE.PRICE_CODE=PRICE.PRICE_CODE; 
++----------------------------+-------------+-------------------+---------------+
+| MOVIE_TITLE                | MOVIE_GENRE | PRICE_DESCRIPTION | PRICE_RENTFEE |
++----------------------------+-------------+-------------------+---------------+
+| The Cesar Family Christmas | FAMILY      | New Release       |          4.00 |
+| Smokey Mountain Wildlife   | ACTION      | Discount          |          2.00 |
+| Richard Goodhope           | DRAMA       | New Release       |          4.00 |
+| Beatnik Fever              | COMEDY      | New Release       |          4.00 |
+| Where Hope Dies            | DRAMA       | Discount          |          2.00 |
+| Time to Burn               | ACTION      | Discount          |          2.00 |
+| What He Doesnt Know        | COMEDY      | Standard          |          2.50 |
++----------------------------+-------------+-------------------+---------------+
+7 rows in set (0.000 sec)
+
+//QN19
+MariaDB [EliteVideo]> select MOVIE_GENRE, AVG(PRICE_RENTFEE) as average_rental_fee from MOVIE, PRICE where MOVIE.PRICE_CODE=PRICE.PRICE_CODE GROUP BY MOVIE_GENRE;
++-------------+--------------------+
+| MOVIE_GENRE | average_rental_fee |
++-------------+--------------------+
+| ACTION      |           2.000000 |
+| COMEDY      |           3.250000 |
+| DRAMA       |           3.000000 |
+| FAMILY      |           4.000000 |
++-------------+--------------------+
+4 rows in set (0.001 sec)
+
+//QN20
